@@ -167,6 +167,73 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="lecture-3"><a class="header" href="#lecture-3">Lecture 3</a></h1>
+<h3 id="sample-space--events"><a class="header" href="#sample-space--events">Sample Space &amp; Events</a></h3>
+<p>Consider an experiment whose outcome is not predictable with certainty. The set of all possible outcomes of an experiment is known as the <em>sample space</em> of the experiment and is denoted by \(\Omega\).</p>
+<div class="ex">
+<details>
+<summary>
+<strong>Example:</strong> What is the sample space if the outcome of an experiment consists of the determination of the sex of a newborn child? What about the order of finish in a race among 7 horses numbered 1-7?
+</summary>
+<p>\[
+\Omega = \{ g, b \}\\
+\Omega = \{ \text{All } 7! \text{ permutations of } (1, 2, 3, 4, 5, 6, 7) \}
+\]</p>
+</details>
+</div>
+<p>Any subset \(A\) of the sample space is known as an event.</p>
+<p>The event \(A \cup B\) occurs if either \(A\) or \(B\) occurs.</p>
+<h3 id="extra-credit-the-cake-is-a-lie"><a class="header" href="#extra-credit-the-cake-is-a-lie">Extra Credit: The Cake is a Lie</a></h3>
+<p>For any two events \(A\) and \(B\), we define the event \(AB\) as the <em>intersection</em> of \(A\) and \(B\), or \(A \cap B\).</p>
+<p>The event consisting of no outcomes is denoted as \(\emptyset\).</p>
+<p>If \(AB = \emptyset\), the \(A\) and \(B\) are said to be mutually exclusive.</p>
+<p>We define the event which consists of all outcomes in \(A_n\) for at least one value of \(n = 1, 2, \dots\) as:
+\[
+A = \bigcup_{n=1}^\infty A_n
+\]</p>
+<p>We define the event which consists of those outcomes in all events \(A_n\) for \(n=1, 2, \dots\) as:
+\[
+A = \bigcap_{n=1}^\infty A_n
+\]</p>
+<p>We define \(A^c\) as the <em>complement</em> of \(A\). These are all events in \(\Omega\) but not in \(A\).</p>
+<p>If all events in \(A\) are also in \(B\), then we can write \(A \subset B\).</p>
+<p>If \(A\) contains exactly the same events as \(B\), then \(A = B\).</p>
+<h3 id="set-operations"><a class="header" href="#set-operations">Set Operations</a></h3>
+<p>\[ \left(\bigcup_{i=1}^n A_i\right)^c = \bigcap_{i=1}^n A_i^c \]
+In other words, the complement of the union of <em>all</em> \(A_i\) is the <em>intersection</em> of all of the complements of each \(A_i\).</p>
+<p>\[ \left(\bigcap_{i=1}^n A_i\right)^c = \bigcup_{i=1}^n A_i^c \]
+In other words, the complement of the intersection of <em>all</em> \(A_i\) is the <em>union</em> of the all of the complements of each \(A_i\).</p>
+<h3 id="axioms-of-probability"><a class="header" href="#axioms-of-probability">Axioms of Probability</a></h3>
+<p>We can define the probability of an event occurring by its relative frequency in \(n\) repetitions of an experiment as \(n \to \infty\).</p>
+<p>Define \(P(A)\) as the probability that event \(A\) occurs and \(nA\) as the number of times in the first \(n\) repetitions of an experiment that the event \(A\) occurs.</p>
+<p>\[P(A) = \lim_{n\to\infty}{\frac{nA}{n}} \]
+\[P(A) = \frac{\text{number of elements in A}}{\text{number of possible outcomes}}\]</p>
+<div class="def">
+<p><strong>Nonnegativity</strong>: <em>\(P(A) \geq 0\) for every event \(A\).</em></p>
+</div>
+<div class="def">
+<p><strong>Additivity</strong>: <em>if \(A\) and \(B\) are two disjoint events, then the probability of their union satisfies</em>
+\[
+P(A \cup B) = P(A) + P(B)
+\]</p>
+</div>
+<p>This expression generalizes to
+\[
+P\left(\bigcup_{i=1}^\infty A_i\right) = \sum_{i=1}^{\infty} P\left(A_i\right)
+\]</p>
+<p>In other words, the probability of the union of all events in \(A\) is the sum of the probability of each event \(A_i\).</p>
+<div class="def">
+<p><strong>Normalization</strong>: <em>The probability of the entire sample space \(\Omega\) is equal to \(1\).</em></p>
+<p>\[
+P(\Omega) = 1
+\]</p>
+</div>
+<h3 id="propositions"><a class="header" href="#propositions">Propositions</a></h3>
+<ol>
+<li>\(P(A^c)=1-P(A)\) for every event \(A\).</li>
+<li>If \(A \subset B\), then \(P(A) \leq P(B)\).</li>
+<li>\(P(A \cup B) = P(A) + P(B) - P(A \cap B)\)</li>
+</ol>
+<p>*Note: proposition 3 can be generalized to any number of events.</p>
 
                     </main>
 
