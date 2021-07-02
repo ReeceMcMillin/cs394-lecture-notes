@@ -494,7 +494,285 @@ P(AB)&amp;=P(A)P(B)
 \end{align}
 \]</p>
 </div>
-<h1 id="lecture-5"><a class="header" href="#lecture-5">Lecture 5</a></h1>
+<h1 id="lecture-5---random-variables"><a class="header" href="#lecture-5---random-variables">Lecture 5 - Random Variables</a></h1>
+<h3 id="random-variables"><a class="header" href="#random-variables">Random Variables</a></h3>
+<div class="def">
+<p><em>A random variable is a real-valued function of the outcome of an experiment.</em></p>
+</div>
+<p>A function of a random variable defines another random variable.</p>
+<p>We can associate with each random variable certain &quot;averages&quot; of interest, such as the mean and variance.</p>
+<p>A random variable can be conditioned on an event or on another random variable.</p>
+<p>There is a notion of independence of a random variable from an event or from another random variable.</p>
+<h3 id="discrete-random-variables"><a class="header" href="#discrete-random-variables">Discrete Random Variables</a></h3>
+<div class="def">
+<p><em>A random variable is called discrete if its range (the set of values that it can take) is either finite or countably infinite.</em></p>
+</div>
+<p>A discrete random variable is a real-valued function of the outcome of an experiment that can take a finite or countably infinite number of values.</p>
+<p>A discrete random variable has an associated probability mass function (PMF), which gives the probability of each numerical value that the random variable can take.</p>
+<p>A function of a discrete random variable defines another discrete random variable, whose PMF can be obtained from the PMF of the original random variable.</p>
+<h3 id="probability-mass-functions"><a class="header" href="#probability-mass-functions">Probability Mass Functions</a></h3>
+<div class="def">
+<p><em>For a discrete random variable \(X\), we denote the PMF of \(X\) as \(P_x\).</em></p>
+</div>
+<p>If \(x\) is any real number, the probability mass of \(x\), denoted \(p_x(x)\), is the probability of the event \(\{ X=x \}\) consisting of all outcomes that give rise to a value \(X\) equal to \(x\):
+\[
+p_x(x) = P(\{ X = x \})
+\]</p>
+<p>For each possible value \(x\) of \(X\),</p>
+<ol>
+<li>Collect all the possible outcomes that give rise to the event \(\{ X = x \}\).</li>
+<li>Add their probabilities to obtain \(p_x(x)\).</li>
+<li>Note that
+\[
+\sum_x{p_x(x)}=1
+\]</li>
+<li>For any set \(S\) of possible values of \(X\), we have
+\[
+P(X \in S) = \sum_{x \in S}{p_x(x)}
+\]</li>
+</ol>
+<p>For example, consider two tosses of a coin and let \(X\) be the number of heads.
+\[
+p_x(x) = 
+\begin{cases}
+\frac{1}{4} \text{ if } x \in \{ 0, 2 \}\\
+\frac{1}{2} \text{ if } x = 1\\
+0 \text{ otherwise}
+\end{cases}
+\]</p>
+<p>If \(X\) is the number of heads obtained on two independent tosses of a fair coin, the probability of at least one head is
+\[
+P(X &gt; 0) = \sum_{x=1}^{2}p_x(x) = \frac{1}{2}+\frac{1}{4}=\frac{3}{4}
+\]</p>
+<h3 id="the-bernoulli-random-variable"><a class="header" href="#the-bernoulli-random-variable">The Bernoulli Random Variable</a></h3>
+<p>Suppose that a trial/experiment has an outcome that can be classified as either a success or a failure.</p>
+<p>Let \(X\) be \(1\) if the outcome is a success and let \(X\) be \(0\) if the outcome is a failure. The PMF is:
+\[
+\begin{align}
+p(0) &amp;= P[X=0]=1-p\\
+p(1) &amp;= P[X=1]=p
+\end{align}
+\]</p>
+<h3 id="the-binomial-random-variable"><a class="header" href="#the-binomial-random-variable">The Binomial Random Variable</a></h3>
+<p>Repeat the independent Bernoulli trials \(n\) times.</p>
+<p>\(X\) is said to be binomial with parameters \((n, p)\).</p>
+<p>The Bernoulli RV can be considered binomial \((1, p)\).</p>
+<p>We use the binomial distribution to find \(k\) successes in \(n\) independent trials.</p>
+<p>\[
+p(k \text{ successes in } n \text{ trials}) = \binom{n}{k}p^k\left(1-p\right)^{n-k}
+\]</p>
+<div class="ex">
+<details>
+<summary>
+<strong>Example:</strong> Flip a fair coin 10 times. What is the probability that 6 heads appear?
+</summary>
+<p>\[
+\begin{align}
+p(6\text{ successes in } 10 \text{ trials}) &amp;= \binom{10}{6}\left(\tfrac{1}{2}\right)^6\left(\tfrac{1}{2}\right)^4\\
+&amp;=\binom{10}{6}\left(\tfrac{1}{2}\right)^{10}
+\end{align}
+\]</p>
+</details>
+</div>
+<h3 id="the-poisson-random-variable"><a class="header" href="#the-poisson-random-variable">The Poisson Random Variable</a></h3>
+<p>Suppose the probability mass function of a random variable \(X\) is given by
+\[
+p_x(k) = \frac{c\lambda^k}{k!}, k = 0, 1, 2, \dots, \text{where } \lambda &gt; 0
+\]</p>
+<p>Knowing that all probabilities sum to 1, we must have
+\[
+c\sum_{k=0}^{\infty}\frac{\lambda^k}{k!}=1
+\]</p>
+<p>Using the fact that the above property is the taylor series expansion of \(e^\lambda\), we know that c=e^{-\lambda}.</p>
+<p>Suppose we want to know \(P(X=0\) and \(P(X&gt;2\).
+\[
+\begin{align}
+P(X=0) &amp;= e^{-\lambda}\\
+P(X&gt;2) &amp;= 1-P(X=0)-P(X=1)-P(X=2)\\
+&amp;=1-e^{-\lambda}-\lambda e^{-\lambda}-\frac{\lambda^2e^{-\lambda}}{2}
+\end{align}
+\]</p>
+<p>We'll see that the Poisson RV is closely related to the Exponential RV. The parameter \(\lambda\) in the exponential RV is a rate (mean rate), whereas the parameter \(\lambda\) in the Poisson is typically a number (mean number). To alleviate the confusion, the Poisson RV parameter is frequently rerferred to as \(\alpha\).
+\[
+p_x(k) = e^{-\alpha}\frac{\alpha^k}{k!}, k = 0, 1, 2, \dots
+\]</p>
+<h3 id="the-geometric-random-variable"><a class="header" href="#the-geometric-random-variable">The Geometric Random Variable</a></h3>
+<p>The number of Bernoulli trials \(k\) required for a success is geometrically distributed.
+\[
+p_x(k) = (1-p)^{k-1}p, k=1, 2, \dots
+\]</p>
+<div class="ex">
+<details>
+<summary>
+<strong>Example:</strong>
+<p>If the probability of a station transmitting a packet successfully is \(\frac{1}{3}\), what is the probability that 2 transmissions are needed?</p>
+</summary>
+<p>\[
+p_x(2) = \left(1-\tfrac{1}{3}\right)\left(\tfrac{1}{3}\right)
+\]</p>
+</details>
+</div>
+<h3 id="modified-geometric-random-variable"><a class="header" href="#modified-geometric-random-variable">Modified Geometric Random Variable</a></h3>
+<p>Suppose that we wanted the number of failures <em>up until a success</em>.</p>
+<p>This is the modified geometric RV.</p>
+<p>\[
+p_x(k) = (1-p)^kp, k=1, 2, \dots
+\]</p>
+<div class="ex">
+<details>
+<summary>
+<strong>Example:</strong>
+<p>If the probability of a station transmitting a packet successfully is \(\tfrac{1}{3}\), what is the probability that there were 4 failures before a success?</p>
+</summary>
+<p>\[
+\left(\tfrac{2}{3}\right)^4\left(\tfrac{1}{3}\right) = \tfrac{16}{243}
+\]</p>
+</details>
+</div>
+<h3 id="functions-of-random-variables"><a class="header" href="#functions-of-random-variables">Functions of Random Variables</a></h3>
+<p>Given a random variable \(X\), one may generate other random variables by applying various transformations on \(X\).</p>
+<p>Let the random variable \(X\) be the temperature in degrees Celsius and consider the transformation \(Y = 1.8X + 32\), which gives the temperature in degrees Fahrenheit.</p>
+<p>In this example, \(Y\) is a linear function of \(X\) of the form
+\[
+Y = g(X) = aX + b
+\]
+where \(a\) and \(b\) are scalars.</p>
+<p>We may also consider nonlinear functions of the general form \(Y = g(X)\).</p>
+<p>To obtain \(p_Y(y)\) for any \(y\), we add the probabilities of all values of \(x\) such that \(g(x) = y\):
+\[
+p_Y(y) = \sum_{\{ x|g(x)=y \}}{p_X(x)}
+\]</p>
+<p>Let \(Y = |X|\) and let us apply the preceding formula for the PMF to the case where
+\[
+\begin{cases}
+\frac{1}{9} \text{ if } x \in [-4, 4]\\
+0 \text{ otherwise}
+\end{cases}
+\]</p>
+<p>The possible values of \(Y\) are \(y=0, 1, 2, 3, 4\).</p>
+<p>We have \(p_Y(0) = p_X(0) = \frac{1}{9}\).</p>
+<p>Note that two values of \(X\) correspond to each \(y=1, 2, 3, 4\). For example:
+\[
+p_Y(1) = p_X(-1) + p_x(1) = \frac{2}{9}
+\]</p>
+<p>Thus, the PMF of Y is
+\[
+p_Y(y) = 
+\begin{cases}
+\frac{2}{9} \text{ if } y=1, 2, 3, 4\\
+\frac{1}{9} \text{ if } y=0\\
+0 \text{ otherwise}
+\end{cases}
+\]</p>
+<p>For another related example, let \(Z = X^2\).</p>
+<p>To obtain the PMF of \(Z\), we can view it either as the square of the random variable \(X\) or as the square of the random variable \(Y\).</p>
+<p>If we let \(p_Z(z) = \sum{\{ y|y^2=z \}p_Y(y)}\), we obtain
+\[
+p_Z(z) =
+\begin{cases}
+\frac{2}{9} \text{ if } z=1, 4, 9, 16\\
+\frac{1}{9} \text{ if } z=0\\
+0 \text{ otherwise}
+\end{cases}
+\]</p>
+<h3 id="expectation-mean-and-variance"><a class="header" href="#expectation-mean-and-variance">Expectation, Mean, and Variance</a></h3>
+<p>We define the expected value (also called the <em>expectation</em> or the <em>mean</em>) of a random variable \(X\) with PMF \(p_X(x)\) by
+\[
+E[X] = \sum_{x}{xp_X(x)}
+\]</p>
+<p>Consider two independent coin tosses, each with a \(\tfrac{3}{4}\) probability of a head, and let \(X\) be the number of heads obtained. This is a binomial random variable with parameters \(n = 2\) and \(p = \tfrac{3}{4}\). Its PMF is
+\[
+p_X(k) =
+\begin{cases}
+\begin{align}
+&amp;\left(\tfrac{1}{4}\right)^2 &amp;\text{if } k=0\\
+&amp;2\cdot\left(\tfrac{1}{4}\right)\cdot\left(\tfrac{3}{4}\right) &amp;\text{if } k=1\\
+&amp;\left(\tfrac{3}{4}\right)^2 &amp;\text{if } k=2\\
+&amp;0 &amp;\text{otherwise}\\
+\end{align}
+\end{cases}
+\]</p>
+<p>So, the mean is</p>
+<p>\[
+\begin{align}
+E[X] &amp;= 0 \cdot \left(\tfrac{1}{4}\right)^2 + 1 \cdot \left(2 \cdot \tfrac{1}{4} \cdot \tfrac{3}{4}\right) + 2 \cdot \left(\tfrac{3}{4}\right)^2\\
+&amp;= \tfrac{24}{16}\\
+&amp;= \tfrac{3}{2}
+\end{align}
+\]</p>
+<h3 id="moments--variance"><a class="header" href="#moments--variance">Moments &amp; Variance</a></h3>
+<p>The \(n^{th}\) moment of the random variable \(X\), denoted as \(E[X^n]\) is the expected value of the random variable \(X^n\).</p>
+<p>The most important quantity associated with a random variable \(X\) other than the mean is its variance, which is denoted by \(\text{var}(X)\) and is defined as the expected value of the random variable \(\left(X-E[X]\right)^2\).</p>
+<p>Note that this means the variance is <em>always</em> nonnegative.</p>
+<p>THe variance provides a measure of dispersion of \(X\) around its mean. Another measure of dispersion is the standard deviation of \(X\), which is defined as the square root of the variance and is denoted by \(\sigma_X\).
+\[
+\sigma_X = \sqrt{\text{var}(X)}
+\]</p>
+<h3 id="expected-value-rule-for-random-variable-functions"><a class="header" href="#expected-value-rule-for-random-variable-functions">Expected Value Rule for Random Variable Functions</a></h3>
+<p>Let \(X\) be a random variable with PMF \(p_X(x)\) and let \(g(X)\) be a real-valued function of \(X\). Then, the expected value of the random variable \(g(X)\) is given by
+\[
+E[g(X)] = \sum_{x}{g(x)p_X(x)}
+\]</p>
+<p>Let \(X\) be a random variable and let \(Y = aX+b\), where \(a\) and \(b\) are given scalars. Then, \(E[Y] = aE[X] + b\) and \(\text{var}(Y) = a^2\text{var}(X)\).</p>
+<p>The variance of a random variable in terms of the moments expression is
+\[
+\text{var}(X) = E[X^2] - \left(E[X]\right)^2
+\]</p>
+<p>Again, consider two independent coin tosses, each with a \(\tfrac{3}{4}\) probability of a head. Let \(X\) be the number of heads obtained. This is a binomial random variable iwth parameters \(n=2\) and \(p=\tfrac{3}{4}\). Its PMF is
+\[
+p_X(k) =
+\begin{cases}
+\begin{align}
+&amp;\left(\tfrac{1}{4}\right)^2 &amp;\text{if } k=0\\
+&amp;2\cdot\left(\tfrac{1}{4}\right)\cdot\left(\tfrac{3}{4}\right) &amp;\text{if } k=1\\
+&amp;\left(\tfrac{3}{4}\right)^2 &amp;\text{if } k=2\\
+&amp;0 &amp;\text{otherwise}\\
+\end{align}
+\end{cases}
+\]</p>
+<p>The first two moments and variance are
+\[
+\begin{align}
+E[X] &amp;= 0 \cdot \tfrac{1}{4}^2 + 1 \cdot \left(2 \cdot \tfrac{1}{4} \cdot \tfrac{3}{4}\right) + 2 \cdot \tfrac{3}{4}^2 = \tfrac{24}{16} = \tfrac{3}{2}\\
+E[X] &amp;= 0 \cdot \tfrac{1}{4}^2 + 1^2 \cdot \left(2 \cdot \tfrac{1}{4} \cdot \tfrac{3}{4}\right) + 2^2 \cdot \tfrac{3}{4}^2 = \tfrac{24}{16} = \tfrac{21}{8}\\
+\text{var}(X) &amp;= \tfrac{21}{8} - \tfrac{3}{2}^2 = \tfrac{3}{8}
+\end{align}
+\]</p>
+<h3 id="discrete-uniform-random-variable"><a class="header" href="#discrete-uniform-random-variable">Discrete Uniform Random Variable</a></h3>
+<p>What is the mean and variance of the roll of a fair six-sided die? Its PMF is
+\[
+p_X(k) =
+\begin{cases}
+\tfrac{1}{6} \text{ if } k=1, 2, 3, 4, 5, 6\\
+0 \text{ otherwise}
+\end{cases}
+\]</p>
+<p>\[
+\begin{align}
+E[X] &amp;= 3.5\\
+\text{var}(X) &amp;= E[X^2]-\left(E[X]\right)^2\\
+&amp;= \tfrac{1}{6}\left(1^2+2^2+3^2+4^2+5^2+6^2\right) - (3.5)^2\\
+&amp;= \tfrac{35}{12}
+\end{align}
+\]</p>
+<p>The above random variable is a special case of a <strong>discrete uniformly distributed random variable</strong>, or <strong>discrete uniform</strong> for short.</p>
+<p>The discrete uniform random variable has a PMF of the form
+\[
+p_X(k) =
+\begin{cases}
+\tfrac{1}{b-a+1} \text{ if } k \in [a, b]\\
+0 \text{ otherwise}
+\end{cases}
+\]
+where \(a, b \in \mathbb{Z}, a &lt; b\).</p>
+<p>The mean and variance are
+\[
+\begin{align}
+E[X] &amp;= \frac{a+b}{2}\\
+\text{var}(X) &amp;= E[X^2] - \left(E[X]\right)^2 = \frac{(b-a+1)^2-1}{12}
+\end{align}
+\]</p>
+<h3 id="extra-credit-first-city-to-reach-1000000-people-rome"><a class="header" href="#extra-credit-first-city-to-reach-1000000-people-rome">Extra Credit: First city to reach 1,000,000 people: Rome</a></h3>
 <h1 id="lecture-6"><a class="header" href="#lecture-6">Lecture 6</a></h1>
 
                     </main>
