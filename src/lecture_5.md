@@ -120,9 +120,9 @@ Knowing that all probabilities sum to 1, we must have
     c\sum_{k=0}^{\infty}\frac{\lambda^k}{k!}=1
 \\]
 
-Using the fact that the above property is the taylor series expansion of \\(e^\lambda\\), we know that c=e^{-\lambda}.
+Using the fact that the above property is the taylor series expansion of \\(e^\lambda\\), we know that \\(c=e^{-\lambda}\\).
 
-Suppose we want to know \\(P(X=0\\) and \\(P(X>2\\).
+Suppose we want to know \\(P(X=0)\\) and \\(P(X>2)\\).
 \\[
     \\begin{align}
         P(X=0) &= e^{-\lambda}\\\\
@@ -131,7 +131,7 @@ Suppose we want to know \\(P(X=0\\) and \\(P(X>2\\).
     \\end{align}
 \\]
 
-We'll see that the Poisson RV is closely related to the Exponential RV. The parameter \\(\lambda\\) in the exponential RV is a rate (mean rate), whereas the parameter \\(\lambda\\) in the Poisson is typically a number (mean number). To alleviate the confusion, the Poisson RV parameter is frequently rerferred to as \\(\alpha\\).
+We'll see that the Poisson RV is closely related to the Exponential RV. The parameter \\(\lambda\\) in the exponential RV is a rate (mean rate), whereas the parameter \\(\lambda\\) in the Poisson is typically a number (mean number). To alleviate the confusion, the Poisson RV parameter is frequently referred to as \\(\alpha\\).
 \\[
     p_x(k) = e^{-\alpha}\frac{\alpha^k}{k!}, k = 0, 1, 2, \dots
 \\]
@@ -300,7 +300,7 @@ The variance of a random variable in terms of the moments expression is
     \text{var}(X) = E[X^2] - \left(E[X]\right)^2
 \\]
 
-Again, consider two independent coin tosses, each with a \\(\tfrac{3}{4}\\) probability of a head. Let \\(X\\) be the number of heads obtained. This is a binomial random variable iwth parameters \\(n=2\\) and \\(p=\tfrac{3}{4}\\). Its PMF is
+Again, consider two independent coin tosses, each with a \\(\tfrac{3}{4}\\) probability of a head. Let \\(X\\) be the number of heads obtained. This is a binomial random variable with parameters \\(n=2\\) and \\(p=\tfrac{3}{4}\\). Its PMF is
 \\[
     p_X(k) =
     \\begin{cases}

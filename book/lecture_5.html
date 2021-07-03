@@ -255,7 +255,7 @@ p_x(k) = \frac{c\lambda^k}{k!}, k = 0, 1, 2, \dots, \text{where } \lambda &gt; 0
 \[
 c\sum_{k=0}^{\infty}\frac{\lambda^k}{k!}=1
 \]</p>
-<p>Using the fact that the above property is the taylor series expansion of \(e^\lambda\), we know that c=e^{-\lambda}.</p>
+<p>Using the fact that the above property is the taylor series expansion of \(e^\lambda\), we know that \(c=e^{-\lambda}\).</p>
 <p>Suppose we want to know \(P(X=0\) and \(P(X&gt;2\).
 \[
 \begin{align}
@@ -264,7 +264,7 @@ P(X&gt;2) &amp;= 1-P(X=0)-P(X=1)-P(X=2)\\
 &amp;=1-e^{-\lambda}-\lambda e^{-\lambda}-\frac{\lambda^2e^{-\lambda}}{2}
 \end{align}
 \]</p>
-<p>We'll see that the Poisson RV is closely related to the Exponential RV. The parameter \(\lambda\) in the exponential RV is a rate (mean rate), whereas the parameter \(\lambda\) in the Poisson is typically a number (mean number). To alleviate the confusion, the Poisson RV parameter is frequently rerferred to as \(\alpha\).
+<p>We'll see that the Poisson RV is closely related to the Exponential RV. The parameter \(\lambda\) in the exponential RV is a rate (mean rate), whereas the parameter \(\lambda\) in the Poisson is typically a number (mean number). To alleviate the confusion, the Poisson RV parameter is frequently referred to as \(\alpha\).
 \[
 p_x(k) = e^{-\alpha}\frac{\alpha^k}{k!}, k = 0, 1, 2, \dots
 \]</p>
@@ -390,7 +390,7 @@ E[g(X)] = \sum_{x}{g(x)p_X(x)}
 \[
 \text{var}(X) = E[X^2] - \left(E[X]\right)^2
 \]</p>
-<p>Again, consider two independent coin tosses, each with a \(\tfrac{3}{4}\) probability of a head. Let \(X\) be the number of heads obtained. This is a binomial random variable iwth parameters \(n=2\) and \(p=\tfrac{3}{4}\). Its PMF is
+<p>Again, consider two independent coin tosses, each with a \(\tfrac{3}{4}\) probability of a head. Let \(X\) be the number of heads obtained. This is a binomial random variable with parameters \(n=2\) and \(p=\tfrac{3}{4}\). Its PMF is
 \[
 p_X(k) =
 \begin{cases}
