@@ -167,6 +167,302 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="lecture-6"><a class="header" href="#lecture-6">Lecture 6</a></h1>
+<h3 id="continuous-random-variables"><a class="header" href="#continuous-random-variables">Continuous Random Variables</a></h3>
+<div class="def">
+<p><strong>Continuous Random Variable</strong>: <em>A random variable \(X\) is called <strong>continuous</strong> if its porbability law can be described in terms of a nonnegative function \(f_X\), called the <strong>probability density function</strong> of \(X\), or <strong>PDF</strong> for short.</em></p>
+</div>
+<p>A PDF satisfies
+\[
+P(X \in B) = \int_B {f_X(x)}dx
+\]</p>
+<p>for every subset \(B\) of the real line. In particular, the probability that the value of \(X\) falls within an interval is
+\[
+P(a \leq X \leq b) = \int_a^b{f_X(x)}dx
+\]</p>
+<p>Note:
+\[
+P(a \leq X \leq b) = P(a &lt; X &lt; b) = P(a \leq X &lt; b) = P(a &lt; X \leq b)
+\]</p>
+<div class="idea">
+<p><strong>Big Idea</strong>: <em>The probability at an individual point on a continuous distribution is 0, so the equality of \(a\) or \(b\) is unimportant.</em></p>
+</div>
+<p>Note that to qualify as a PDF, a function \(f_X\) must be nonnegative, i.e. \(f_X(x) \geq 0\) for every \(x\), and mus talso satisfy the normalization equation
+\[
+\int_{-\infty}^\infty{f_X(x)}dx = P(-\infty &lt; X &lt; \infty) = 1
+\]</p>
+<h3 id="continuous-uniform-random-variable"><a class="header" href="#continuous-uniform-random-variable">Continuous Uniform Random Variable</a></h3>
+<p>Consider a random variable \(X\) that takes values in an interval \([a, b]\) and assume that all subintervals of the same length are equally likely. We refer to this type of random variable as uniform or uniformly distributed. Its PDF has the form
+\[
+f_X(x) =
+\begin{cases}
+c \text{ if } a \leq x \leq b\\
+0 \text{ otherwise}
+\end{cases}
+\]</p>
+<p>This means that we can calculate the value of c via the following:
+\[
+1 = \int_a^b{c}dx = c\int_a^b{dx} = c(b-a)
+\]
+In other words,
+\[
+c = \frac{1}{b-a}
+\]</p>
+<h3 id="piecewise-constant-pdf"><a class="header" href="#piecewise-constant-pdf">Piecewise Constant PDF</a></h3>
+<div class="ex">
+<details>
+<summary>
+<strong>Example:</strong> Alvin's driving time to work is between 15 and 20 minutes if the day is sunny, and between 20 and 25 minutes if the day is rainy, with all times being equally likely in each case.
+<p>Assume that a day is sunny with probability \(\tfrac{2}{3}\) and rainy with probability \(\tfrac{1}{3}\).</p>
+<p>What is the PDF of the driving time viewed as a random variable \(X\)?</p>
+</summary>
+<p>We interpret the statement that &quot;all times are equally likely&quot; in the sunny and rainy cases to mean that the PDF of \(X\) is constant in each of the intervals \([15, 20]\) and \([20, 25]\).</p>
+<p>Furthermore, since these two intervals contain all possible driving times, the PDF should be zero everywhere else.</p>
+<p>\[
+f_X(x) =
+\begin{cases}
+c_1 \text{ if } 15 \leq x \leq 20\\
+c_2 \text{ if } 20 \leq x \leq 25\\
+0 \text{ otherwise}
+\end{cases}
+\]</p>
+<p>where \(c_1, c_2\) are some constants.</p>
+<p>We can determine these constants by using the probabilities of a sunny and of a rainy day.</p>
+<p>\[
+\begin{align}
+\frac{2}{3} &amp;= P(\text{sunny day}) = \int_{15}^{20}{f_X(x)}dx = \int_{15}^{20}{c_1}dx = 5c_1\\
+\frac{1}{3} &amp;= P(\text{rainy day}) = \int_{20}^{25}{f_X(x)}dx = \int_{20}^{25}{c_2}dx = 5c_2\\ 
+\end{align}
+\]</p>
+<p>So that
+\[
+c_1 = \frac{2}{15}\quad c_2 = \frac{1}{15}
+\]</p>
+</details>
+</div>
+<h3 id="a-pdf-can-be-arbitrarily-large"><a class="header" href="#a-pdf-can-be-arbitrarily-large">A PDF can be arbitrarily large</a></h3>
+<p>Consider a random variable \(X\) with PDF
+\[
+f_X(x) = 
+\begin{cases}
+\tfrac{1}{2\sqrt{x}} \text{ if } 0 &lt; x \leq 1\\
+0 \text{ otherwise}
+\end{cases}
+\]</p>
+<p>Even though \(f_X(x)\) becomes infinitely large as \(x\) approaches zero, this is still a valid PDF because
+\[
+\int_{-\infty}^\infty{f_X(x)}dx = \int_0^1{\frac{1}{2\sqrt{x}}}dx = \sqrt{x}\Big|_0^1 = 1
+\]</p>
+<h3 id="summary-of-pdf-properties"><a class="header" href="#summary-of-pdf-properties">Summary of PDF Properties</a></h3>
+<p>Let \(X\) be a CRV with PDF \(f_X\).
+\[
+\begin{gather}
+f_X(x) \geq 0 \text{ for all } x\\\\
+\int_{-\infty}^\infty{f_X(x)}dx = 1\\\\
+\text{If } \delta \text{ is very small, then } P(|x, x+\delta|) \approx f_X(x) \cdot \delta\\\\
+\text{For any subset } B \text{ of the real line, } P(X \in B) = \int_B{f_X(x)}dx
+\end{gather}
+\]</p>
+<h3 id="expectation"><a class="header" href="#expectation">Expectation</a></h3>
+<p>The <strong>expected value</strong> or <strong>mean</strong> of a CRV \(X\) is defined by
+\[
+E[X] = \int_{-\infty}^\infty{xf_X(x)}dx
+\]
+We also have
+\[
+E[g(X)] = \int_{-\infty}^\infty{g(x)f_X(x)}dx
+\]
+The variance of \(X\) is defined by
+\[
+\text{var}(X) = E[(X - E[X])^2] = \int_{-\infty}^\infty{(X - E[X])^2f_X(x)}dx
+\]
+We have
+\[
+0 \leq \text{var}(X) = E[x^2] - (E[X])^2
+\]
+If \(Y=ax+b\) where \(a\) and \(b\) are given scalars, then
+\[
+E[Y] = aE[X] + b \quad \text{var}(Y) = a^2\text{var}(X)
+\]</p>
+<h3 id="cumulative-distribution-functions"><a class="header" href="#cumulative-distribution-functions">Cumulative Distribution Functions</a></h3>
+<p>The CDF of a random variable \(X\) is denoted by \(F_X\) and provides the probability \(P(X \leq x)\). In particular, for every \(x\) we have</p>
+<p>\[
+F_X(x) = P(X \leq x) = 
+\begin{cases}
+\sum_{k \leq x}{p_X(k)} \text{ if } X \text{ discrete}\\\\
+\int_{-\infty}^x{f_X(t)}dt \text{ if } X \text{ continuous}
+\end{cases}
+\]</p>
+<h3 id="cdf-properties"><a class="header" href="#cdf-properties">CDF Properties</a></h3>
+<p>The CDF \(F_X\) of a random variable \(X\) is defined by
+\[
+F_X(x) = P(X \leq x) \text{ for all x}
+\]</p>
+<ul>
+<li>
+<p>\(F_X\) is monotonically nondecreasing: if \(x \leq y\), then \(F_X(x) \leq F_X(y)\)</p>
+</li>
+<li>
+<p>\(F_X(x)\) tends to 0 as \(x \to -\infty\), and to 1 as \(x \to \infty\).</p>
+</li>
+<li>
+<p>If \(X\) is discrete, then \(F_X\) has a piecewise constant and staircase-like form.</p>
+</li>
+<li>
+<p>If \(X\) is continuous, then \(F_X\) has a continuously increasing form.</p>
+</li>
+<li>
+<p>If \(X\) is discrete and takes integer values, the PMF and the CDF can be obtained from each other by summing or differencing:
+\[
+\begin{gather}
+F_X(k) = \sum_{t=-\infty}^{k}{p_X(i)}\\\\
+p_X(k) = P(X \leq k) - P(X \leq k-1) = F_X(k) - F_X(k-1)
+\end{gather}
+\]
+for all integers \(k\).</p>
+</li>
+</ul>
+<h3 id="conditional-pdf-and-expectation"><a class="header" href="#conditional-pdf-and-expectation">Conditional PDF and Expectation</a></h3>
+<p>The conditional PDF \(f_{X|A}\) of a continuous random variable \(X\) given an event \(A\) with \(P(A) &gt; 0\) satisfies
+\[
+P(X \in B|A) = \int_{B}{f_{X|A}(x)}dx
+\]</p>
+<p>If \(A\) is a subset of the real line with \(P(X \in A) &gt; 0\), then
+\[
+P(X \in B|X \in A) = \frac{P(X \in B \cap X \in A)}{P(X \in A)} = \frac{\int_{A \cap B}{f_X(x)}dx}{P(X \in A )}
+\]</p>
+<p>The resulting formula is
+\[
+f_{X|A}(x) = 
+\begin{cases}
+\frac{f_X(x)}{P(X \in A)} \text{ if } x \in A\\
+0 \text{ otherwise}
+\end{cases}
+\]</p>
+<p>and
+\[
+P(X \in B|X \in A) = \int_{B}{f_{X|A}(x)}dx
+\]</p>
+<p>for any set \(B\).</p>
+<p>The corresponding conditional expectation is defined by
+\[
+E[X|A] = \int_{-\infty}^\infty{xf_{X|A}(x)}dx
+\]</p>
+<p>The expected value rule remains valid:
+\[
+E[g(X)|A] = \int_{-\infty}^\infty{g(x)f_{X|A}(x)}dx
+\]</p>
+<p>If \(A_1, A_2, \dots, A_n\) are disjoint events with \(P(A_i) &gt; 0\) for each \(i\) that form a partition of the sample space, then
+\[
+f_X(x) = \sum_{i=1}^{n}P(A_i)f_X|A(x)
+\]</p>
+<p>Law of total expectation:
+\[
+\begin{align}
+E[X] &amp;= \sum_{i=1}^{n}{P(A_i)E[X|A_i]}\\
+E[g(X)] &amp;= \sum_{i=1}^{n}{P(A_i)E[g(X)|A_i]}
+\end{align}
+\]</p>
+<h3 id="multiple-continuous-random-variables"><a class="header" href="#multiple-continuous-random-variables">Multiple Continuous Random Variables</a></h3>
+<p>Two continuous random variables associated with a common experiment are jointly continuous and can be described in terms of a joint PDF \(f_{X,Y}\) if \(f_{X,Y}\) is a nonnegative function that satisfies
+\[
+P((X, Y) \in B) = \int_{(x, y) \in B}{\int{f_{X,Y}(x, y)}dx}dy
+\]</p>
+<p>For every subset \(B\) of the two-dimensional plane.</p>
+<p>If \(B\) is a rectangle of the form \(B = [a, b] \times [c, d]\), we have
+\[
+P(a \leq X \leq b, c \leq Y \leq d) = \int_{c}^{d}{\int_{a}^{b}{f_{X,Y}(x, y)}dx}dy
+\]</p>
+<p>We have the normalization property
+\[
+\int_{-\infty}^\infty{\int_{-\infty}^\infty{f_{X,Y}(x, y)}dx}dy = 1
+\]</p>
+<h3 id="marginal-distributions"><a class="header" href="#marginal-distributions">Marginal Distributions</a></h3>
+<p>Given the joint random variable \(f_{x, y}(x, y)\), the marginals are:
+\[
+\begin{align}
+f_X(x) = \int_{-\infty}^\infty{f_{X,Y}(x, y)}dy\\
+f_Y(y) = \int_{-\infty}^\infty{f_{X,Y}(x, y)}dx\\
+\end{align}
+\]</p>
+<p>Given the joint random variables of three variables \(f_{X,Y,Z}(x, y, z)\), the marginals are:
+\[
+\begin{align}
+f_X(x) = \int_{-\infty}^\infty{\int_{-\infty}^\infty{f_{X,Y,Z}(x,y,z)}dy}dz\\
+f_Y(y) = \int_{-\infty}^\infty{\int_{-\infty}^\infty{f_{X,Y,Z}(x,y,z)}dx}dz\\
+f_Z(z) = \int_{-\infty}^\infty{\int_{-\infty}^\infty{f_{X,Y,Z}(x,y,z)}dx}dy\\
+\end{align}
+\]</p>
+<h3 id="expectation-1"><a class="header" href="#expectation-1">Expectation</a></h3>
+<p>If \(X\) and \(Y\) are jointly continuous random variables, and \(g\) is some function, then \(Z = g(X, Y\) is also a random variable.
+\[
+E[g(X, Y)] = \int_{-\infty}^\infty{\int_{-\infty}^\infty{g(x,y)f_{X,Y}(x,y)}dx}dy
+\]</p>
+<p>As an important special case, for any scalars \(a, b\), we have
+\[
+E[aX + bY] = aE[X] + bE[Y]
+\]</p>
+<h3 id="conditioning"><a class="header" href="#conditioning">Conditioning</a></h3>
+<p>Let \(X\) and \(Y\) be continuous random variables with joint PDF \(f_{X,Y}\). For any fixed \(y\) with \(f_Y(y) &gt; 0\), the conditional PDF of \(X\) given that \(Y=y\) is defined by
+\[
+f_{X|Y}(x|y) = \frac{f_{X|Y}(x|y)}{f_Y(y)}
+\]</p>
+<p>The variable \(y\) is usually a fixed number and \(f_{X|Y}(x|y)\) is a function of the single variable \(x\).</p>
+<p>Note:
+\[
+\int_{-\infty}^\infty{f_{X|Y}(x|y)}dx = 1
+\]</p>
+<p>So for any fixed \(y\), \(f_{X|Y}(x|y)\) is a legitimate PDF.</p>
+<p>Conditional Expectation:
+\[
+\begin{align}
+E[X|Y = y] &amp;= \int_{-\infty}^\infty{xf_{X|Y}(x|y)}dx\\
+E[g(X)|Y=y] &amp;= \int_{-\infty}^\infty{g(x)f_{X|Y}(x|y)}dx
+\end{align}
+\]</p>
+<div class="ex">
+<details>
+<summary>
+<strong>Example:</strong>
+<p>Let \(X\) be exponentially distributed with mean 1. Once we observe the experimental value \(x\) of \(X\), we generate a normal random variable \(Y\) with zero mean and variance \(x+1\). What is the joint PDF of \(X\) and \(Y\)?</p>
+</summary>
+We have:
+<p>\[
+f_X(x) = e^{-x} \text{ for } x \geq 0 \text{ and } f_{Y|X}(y|x) = \frac{1}{\sqrt{2\pi(x+1)}}e^\frac{{-y^2}}{2(x+1)}
+\]</p>
+<p>The joint distribution is
+\[
+f_{X,Y}(x,y) = f_X(x)f_{Y|X}(y|x) = e^{-x}\frac{1}{\sqrt{2\pi(x+1)}}e^\frac{{-y^2}}{2(x+1)}
+\]
+for all \(x \geq 0\) and all \(y\).</p>
+</details>
+</div>
+<h3 id="discrete-uniform-random-variable"><a class="header" href="#discrete-uniform-random-variable">Discrete Uniform Random Variable</a></h3>
+<p>In many situations, we have a model of an underlying but unobserved phenomenon represented by a random variable \(X\) with PDF \(f_X\), and we make noisy measurements \(Y\) which is \(f_{Y|X}\).</p>
+<p>Once the experimental value of \(Y\) is measured, what information does this provide on the unknown value of \(X\)?</p>
+<p>Recall that when we used Bayes' rule for discrete distributions, we can go in both directions.</p>
+<p>\[
+f_Xf_{Y|X} = f_{X,Y} = f_Yf_{X|Y}
+\]</p>
+<p>We have the expression
+\[
+f_Xf_{Y|X} = \frac{f_X(x)f_{Y|X}(y|x)}{\int_{-\infty}^\infty{f_X(t)f_{Y|X}(y|t)}dt}
+\]</p>
+<div class="ex">
+<details>
+<summary>
+<strong>Example:</strong>
+<p>A lightbulb is known to have an exponentially distributed lifetime \(Y\). However, the company has been experiencing quality control problems. On any given day, the parameter \(\lambda\) of the PDF of \(Y\) is actually a random variable, uniformly distributed in the interval \([1, \tfrac{3}{2}]\). We test a lightbulb and record the experimental value \(y\) of its lifetime. What can we say about the underlying parameter \(\lambda\)?</p>
+</summary>
+<p>We model the parameter \(\lambda\) as a uniform random variable \(\Lambda\) with PDF:
+\[
+f_\Lambda(\lambda) = 2 \text{ for } 1 \leq \lambda \leq \tfrac{3}{2}
+\]
+All available information about \(\Lambda\) is contained int he conditional PDF \(f_{\Lambda|Y}(\lambda|y)\), which is given by:</p>
+<p>\[
+f_{\Lambda|Y}(\lambda|y) = \frac{2\lambda e^{-\lambda y}}{\int_{1}^{\frac{3}{2}}{2te^{-ty}}}dt \text{ for } 1 \leq \lambda \leq \frac{3}{2}
+\]</p>
+</details>
+</div>
 
                     </main>
 
