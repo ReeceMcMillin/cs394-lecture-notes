@@ -1,0 +1,331 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Assignment 2, #8 - CS394 Lectures</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        
+        <link rel="icon" href="favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="favicon.png">
+        
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        
+        <link rel="stylesheet" href="css/print.css" media="print">
+        
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+        <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="lecture_1.html"><strong aria-hidden="true">1.</strong> Lecture 1</a></li><li class="chapter-item expanded "><a href="lecture_2.html"><strong aria-hidden="true">2.</strong> Lecture 2</a></li><li class="chapter-item expanded "><a href="lecture_3.html"><strong aria-hidden="true">3.</strong> Lecture 3</a></li><li class="chapter-item expanded "><a href="lecture_4.html"><strong aria-hidden="true">4.</strong> Lecture 4</a></li><li class="chapter-item expanded "><a href="lecture_5.html"><strong aria-hidden="true">5.</strong> Lecture 5</a></li><li class="chapter-item expanded "><a href="lecture_6.html"><strong aria-hidden="true">6.</strong> Lecture 6</a></li><li class="chapter-item expanded "><a href="assignment2_8.html" class="active"><strong aria-hidden="true">7.</strong> Assignment 2, #8</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">CS394 Lectures</h1>
+
+                    <div class="right-buttons">
+                        
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                        
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="assignment-2-8"><a class="header" href="#assignment-2-8">Assignment 2, #8</a></h1>
+<p>Poker dice is played by simultaneously rolling 5 dice. Show each of the following.</p>
+<ol>
+<li>\(P(\text{no two alike}) = 0.0926\)
+\[
+\frac{\binom{6}{5}\cdot 5!}{6^5} = \frac{5}{54} \approx 0.0926
+\]</li>
+</ol>
+<center>
+<details>
+<summary><strong>Explanation</strong></summary>
+<p>There are \(\binom{6}{5}\) ways to choose a roll containing 5 distinct numbers and \(5!\) ways to order those rolls. This is taken out of \(6^5\) possible rolls for five dice.</p>
+</details>
+</center>
+<ol start="2">
+<li>\(P(\text{one pair}) = 0.4630\)
+\[
+\frac{\binom{6}{1}\binom{5}{2}\cdot 3!\binom{5}{3}}{6^5} = \frac{3600}{6^5} \approx 0.4360
+\]</li>
+</ol>
+<center>
+<details>
+<summary><strong>Explanation</strong></summary>
+<p>There are \(\binom{6}{1}\) choices for which number has a pairing and \(\binom{5}{2}\) ways to choose that pair from a roll of 5 dice. There are \(\binom{6-1}{3}\) ways to choose the remaining values (one value from the original 6 is off-limits) with a total of \(3!\) orderings, again taken out of \(6^5\) possible events.</p>
+</details>
+</center>
+<ol start="3">
+<li>\(P(\text{two pairs}) = 0.2315\)
+\[
+\frac{\binom{6}{2}\binom{5}{2}\binom{3}{2}\binom{4}{1}}{6^5} = \frac{1800}{6^5} \approx 0.2315
+\]</li>
+</ol>
+<center>
+<details>
+<summary><strong>Explanation</strong></summary>
+<p>There are \(\binom{6}{2}\) ways to choose the two numbers that make up each pair. From here, we have \(\binom{5}{2}\) ways to choose the first pair (choosing 2 dice from 5) and \(\binom{3}{2}\) ways to choose the second (choosing another 2 dice from remaining 3).</p>
+<p>From here our only remaining choice is the value of the final die, choosing 1 value from 4 remaining options, or \(\binom{4}{1}\).</p>
+</details>
+</center>
+<ol>
+<li>\(P(\text{three alike}) = 0.1543\)
+\[
+\frac{\binom{6}{1}\binom{5}{3}\cdot 2!\binom{5}{2}}{6^5} = \frac{1200}{6^5} \approx 0.1543
+\]</li>
+</ol>
+<center>
+<details>
+<summary><strong>Explanation</strong></summary>
+<p>There are \(\binom{6}{1}\) ways to choose which number makes up our three-alike and \(\binom{5}{3}\) ways to select three dice from five. \(2!\binom{6-1}{2}\) accounts for the selection of the remaining two from five potential values with \(2!\) potential orderings.</p>
+</details>
+</center>
+<ol start="5">
+<li>\(P(\text{full house}) = 0.0386\)
+\[
+\frac{\binom{6}{1}\binom{5}{3}\binom{5}{1}}{6^5} = \frac{300}{6^5} \approx 0.0386
+\]</li>
+</ol>
+<center>
+<details>
+<summary><strong>Explanation</strong></summary>
+<p>There are \(\binom{6}{1}\) ways to select which value has a three-alike pairing and \(\binom{5}{3}\) ways to select that pairing from five dice. Since the remaining two dice must have the same value and one value from the original 6 is off-limits, we're selecting one value from the remaining five, or \(\binom{6-1}{1}\).</p>
+</details>
+</center>
+<ol>
+<li>\(P(\text{four alike}) = 0.0193\)
+\[
+\frac{\binom{6}{1}\binom{5}{4}\binom{5}{1}}{6^5} = \frac{150}{6^5} \approx 0.0193
+\]</li>
+</ol>
+<center>
+<details>
+<summary><strong>Explanation</strong></summary>
+<p>There are again \(\binom{6}{1}\) ways to decide which value will make up our four-alike and \(\binom{5}{4}\) ways to select four dice from five. \(\binom{6-1}{1}\) accounts for the ways to select a value for the remaining die.</p>
+</details>
+</center>
+<ol>
+<li>\(P(\text{five alike}) = 0.0008\)
+\[
+\frac{\binom{6}{1}\binom{5}{5}}{6^5} = \frac{6}{6^5} \approx 0.0008
+\]</li>
+</ol>
+<center>
+<details>
+<summary><strong>Explanation</strong></summary>
+<p>Given \(\binom{6}{1}\) ways to select which value has a five-alike pairing, there's only \(\binom{5}{5} = 1\) way to roll each value.</p>
+</details>
+</center>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="lecture_6.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="lecture_6.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+            </nav>
+
+        </div>
+
+        
+        <!-- Livereload script (if served using the cli tool) -->
+        <script type="text/javascript">
+            var socket = new WebSocket("ws://localhost:3000/__livereload");
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>
