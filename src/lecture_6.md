@@ -274,7 +274,7 @@ Given the joint random variables of three variables \\(f_{X,Y,Z}(x, y, z)\\), th
 
 ### Expectation
 
-If \\(X\\) and \\(Y\\) are jointly continuous random variables, and \\(g\\) is some function, then \\(Z = g(X, Y\\) is also a random variable.
+If \\(X\\) and \\(Y\\) are jointly continuous random variables, and \\(g\\) is some function, then \\(Z = g(X, Y)\\) is also a random variable.
 \\[
     E[g(X, Y)] = \int_{-\infty}^\infty{\int_{-\infty}^\infty{g(x,y)f_{X,Y}(x,y)}dx}dy
 \\]

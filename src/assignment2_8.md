@@ -41,7 +41,7 @@ From here our only remaining choice is the value of the final die, choosing 1 va
 </details>
 </center>
 
-1. \\(P(\text{three alike}) = 0.1543\\)
+4. \\(P(\text{three alike}) = 0.1543\\)
 \\[
     \frac{\binom{6}{1}\binom{5}{3}\cdot 2!\binom{5}{2}}{6^5} = \frac{1200}{6^5} \approx 0.1543
 \\]
@@ -65,7 +65,7 @@ There are \\(\binom{6}{1}\\) ways to select which value has a three-alike pairin
 </details>
 </center>
 
-1. \\(P(\text{four alike}) = 0.0193\\)
+6. \\(P(\text{four alike}) = 0.0193\\)
 \\[
     \frac{\binom{6}{1}\binom{5}{4}\binom{5}{1}}{6^5} = \frac{150}{6^5} \approx 0.0193
 \\]
@@ -77,7 +77,7 @@ There are again \\(\binom{6}{1}\\) ways to decide which value will make up our f
 </details>
 </center>
 
-1. \\(P(\text{five alike}) = 0.0008\\)
+7. \\(P(\text{five alike}) = 0.0008\\)
 \\[
     \frac{\binom{6}{1}\binom{5}{5}}{6^5} = \frac{6}{6^5} \approx 0.0008
 \\]

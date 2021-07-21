@@ -100,7 +100,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="lecture_1.html"><strong aria-hidden="true">1.</strong> Lecture 1</a></li><li class="chapter-item expanded "><a href="lecture_2.html"><strong aria-hidden="true">2.</strong> Lecture 2</a></li><li class="chapter-item expanded "><a href="lecture_3.html"><strong aria-hidden="true">3.</strong> Lecture 3</a></li><li class="chapter-item expanded "><a href="lecture_4.html"><strong aria-hidden="true">4.</strong> Lecture 4</a></li><li class="chapter-item expanded "><a href="lecture_5.html"><strong aria-hidden="true">5.</strong> Lecture 5</a></li><li class="chapter-item expanded "><a href="lecture_6.html"><strong aria-hidden="true">6.</strong> Lecture 6</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="lecture_1.html"><strong aria-hidden="true">1.</strong> Lecture 1</a></li><li class="chapter-item expanded "><a href="lecture_2.html"><strong aria-hidden="true">2.</strong> Lecture 2</a></li><li class="chapter-item expanded "><a href="lecture_3.html"><strong aria-hidden="true">3.</strong> Lecture 3</a></li><li class="chapter-item expanded "><a href="lecture_4.html"><strong aria-hidden="true">4.</strong> Lecture 4</a></li><li class="chapter-item expanded "><a href="lecture_5.html"><strong aria-hidden="true">5.</strong> Lecture 5</a></li><li class="chapter-item expanded "><a href="lecture_6.html"><strong aria-hidden="true">6.</strong> Lecture 6</a></li><li class="chapter-item expanded "><a href="lecture_7.html"><strong aria-hidden="true">7.</strong> Lecture 7</a></li><li class="chapter-item expanded "><a href="lecture_8.html"><strong aria-hidden="true">8.</strong> Lecture 8</a></li><li class="chapter-item expanded "><a href="lecture_9.html"><strong aria-hidden="true">9.</strong> Lecture 9</a></li><li class="chapter-item expanded "><a href="lecture_10.html"><strong aria-hidden="true">10.</strong> Lecture 10</a></li><li class="chapter-item expanded "><a href="lecture_11.html"><strong aria-hidden="true">11.</strong> Lecture 11</a></li><li class="chapter-item expanded "><a href="assignment2_8.html"><strong aria-hidden="true">12.</strong> Assignment 2, #8</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -1000,7 +1000,7 @@ f_Z(z) = \int_{-\infty}^\infty{\int_{-\infty}^\infty{f_{X,Y,Z}(x,y,z)}dx}dy\\
 \end{align}
 \]</p>
 <h3 id="expectation-1"><a class="header" href="#expectation-1">Expectation</a></h3>
-<p>If \(X\) and \(Y\) are jointly continuous random variables, and \(g\) is some function, then \(Z = g(X, Y\) is also a random variable.
+<p>If \(X\) and \(Y\) are jointly continuous random variables, and \(g\) is some function, then \(Z = g(X, Y)\) is also a random variable.
 \[
 E[g(X, Y)] = \int_{-\infty}^\infty{\int_{-\infty}^\infty{g(x,y)f_{X,Y}(x,y)}dx}dy
 \]</p>
@@ -1070,6 +1070,240 @@ f_{\Lambda|Y}(\lambda|y) = \frac{2\lambda e^{-\lambda y}}{\int_{1}^{\frac{3}{2}}
 \]</p>
 </details>
 </div>
+<h1 id="lecture-7"><a class="header" href="#lecture-7">Lecture 7</a></h1>
+<h3 id="joint-cdfs"><a class="header" href="#joint-cdfs">Joint CDFs</a></h3>
+<p>The joint CDF of two random variables \(X\) and \(Y\) is defined as
+\[
+F_{X,Y}(x,y) = P(X\leq x, Y\leq y) = \int_{-\infty}^{x}{\int_{-\infty}^{y}{f_{X,Y}(s, t)}dt}ds
+\]</p>
+<div class="ex">
+<details>
+<summary>
+<strong>Example</strong>
+<p>\[
+F_{X,Y}(x,y)=
+\begin{cases}
+\frac{xy}{25} \text{ if } 0 \leq x, y \leq 5\\
+0 \text{ otherwise}
+\end{cases}
+\] </p>
+</summary>
+<p>The sample space is the square \((0, 0)\) to \((5, 5)\).</p>
+<p>Find \(P(X \leq 4, Y \leq 3)\).
+\[
+P(X \leq 4, Y \leq 3) = F_{X,Y}(4,3)=\frac{12}{25}
+\]</p>
+</details>
+</div>
+<p>The joint PDF \(f_{X,Y}(x,y)\) can be derived from the joint CDF by taking the derivatives with respect to both \(x\) and \(y\).
+\[
+f_{X,Y}(x,y) = \frac{\delta^2}{\delta x\delta y}F_{X,Y}(x,y)
+\]</p>
+<div class="ex">
+<details>
+<summary>
+<strong>Example:</strong> Let the joint CDF be
+<p>\[
+F_{X,Y}(x,y) =
+\begin{cases}
+\frac{xy}{25} \text{ if } 0 \leq x, y \leq 5\\
+0 \text{ otherwise }
+\end{cases}
+\]</p>
+</summary>
+The PDF will be
+<p>\[
+\frac{delta^2}{\delta x \delta y} \cdot \frac{xy}{25} = \frac{1}{25}
+\]</p>
+</details>
+</div>
+<h3 id="marginal-distributions-1"><a class="header" href="#marginal-distributions-1">Marginal Distributions</a></h3>
+<p>The marginal distributions \(f_X(x)\) and \(f_Y(y)\) can be calculated as follows:
+\[
+\begin{align}
+f_X(x) &amp;= \int_{-\infty}^{\infty}{f_{X,Y}(x,y)}dy\\
+f_Y(y) &amp;= \int_{-\infty}^{\infty}{f_{X,Y}(x,y)}dx
+\end{align}
+\]</p>
+<p>The expectation of a function of a joint random variable is:</p>
+<p>\[
+E[g(X,Y)] = \int_{-\infty}^\infty{\int_{-\infty}^\infty{g(x,y)f_{X,Y}(x,y)}dx}dy
+\]</p>
+<h3 id="conditional-pdf"><a class="header" href="#conditional-pdf">Conditional PDF</a></h3>
+<p>The conditional PDF of a continuous random variable \(X\), given an event \(A\) with \(P(A) &gt; 0\), is defined as a nonnegative function</p>
+<p>\[
+P(X \in B|A) = f_{X|A}(x)dx
+\]</p>
+<p>For any subset \(B\) of the real line,</p>
+<p>\[
+f_{X|{X \in A}} = 
+\begin{cases}
+\frac{f_X(x)}{P(X \in A)} \text { if } x \in A\\
+0 \text{ otherwise }
+\end{cases}
+\]</p>
+<div class="ex">
+<details>
+<summary>
+<strong>Example:</strong>
+<p>The time \(T\) until a new light bulb burns out is an exponential random variable with parameter \(\lambda\). Ariadne turns the light on, leaves the room, and when she returns \(t\) time units later, finds the light bulb still on, which corresponds to the event \(A = \{T \in T\}\). Let \(X\) be the additional time until the light bulb burns out. What is the conditional CDF of \(X\) given event \(A\)?</p>
+</summary>
+<p>\[
+\begin{align}
+P(X &gt; x|A) &amp;= P(T &gt; t + x|t &gt; t)\\
+&amp;= \frac{P(T &gt; t + x,T &gt; t)}{P(T&gt;t)}\\
+&amp;= \frac{P(T &gt; t+x)}{P(T&gt;t)}\\
+&amp;= \frac{e^{-\lambda(t+x)}}{e^{-\lambda t}}\\
+&amp;= e^{-\lambda x}
+\end{align}
+\]</p>
+</details>
+</div>
+<h3 id="conditioning-1"><a class="header" href="#conditioning-1">Conditioning</a></h3>
+<p>For multiple random variables, if we condition on a positive probability event of the form \(C=\{(X,Y) \in A\}\), we have</p>
+<p>\[
+f_{XY|C}(x,y) =
+\begin{cases}
+\frac{f_{X,Y}(x,y)}{P(C)} \text{ if } (x,y) \in A\\
+0 \text{ otherwise }
+\end{cases}
+\]</p>
+<p>In this case, the conditional PDF of \(X\) given this event can be obtained from the formula</p>
+<p>\[
+f_{X|C}(x) = \int_{-\infty}^\infty{f_{XY|C}(x,y)}dy
+\]</p>
+<p>The above two formulas allow us to obtain the conditional PDF of a random variable \(X\) when the conditioning event is not of the form \(\{X \in A\}\) but is instead defined in terms of multiple random variables.</p>
+<p>Let \(X\) and \(Y\) be continuous random variables with joint PDF \(f_{X,Y}\). For any \(y\) with \(f_Y(y) &gt; 0\), the conditional PDF of \(X\) given that \(Y=y\) is defined by
+\[
+f_{X|Y}(x|y) = \frac{f_{X,Y}(x,y)}{f_Y(y)}
+\]</p>
+<div class="ex">
+<details>
+<summary>
+<strong>Example:</strong>
+<p>Ben throws a dart at a circular target of radius \(r\). We assume that he always hits the target, and that all points of impact \((x, y)\) are equally likely so that the joint PDF of the random variables \(X\) and \(Y\) is uniform. Since the area of the circle is \(\pi r^2\), we have:</p>
+<p>\[
+f_{X,Y}(x,y) =
+\begin{cases}
+c=\frac{1}{\text{area}} \text{ if } (x, y) \text{ is in the circle}\\
+0 \text{ otherwise}
+\end{cases}
+\]</p>
+<p>In other words,
+\[
+f_{X,Y}(x,y) =
+\begin{cases}
+\frac{1}{\pi r^2} \text{ if } x^2+y^2 \leq r^2\\
+0 \text{ otherwise}
+\end{cases}
+\]</p>
+</summary>
+<p>To calculate the conditional PDF \(f_{X|Y}(x|y)\), first find the marginal PDF \(f_Y(y)\). For \(|y| \leq r\), it is given by</p>
+<p>\[
+\begin{align}
+f_Y(y) &amp;= \int_{-\infty}^\infty{f_{X,Y}(x,y)}dx\\
+&amp;= \frac{1}{\pi r^2}\int_{x^2+y^2 \leq r^2}dx\\
+&amp;= \frac{1}{\pi r^2} \int_{\sqrt{r^2-y^2}}^{\sqrt{r^2-y^2}}dx\\
+&amp;= \frac{1}{\pi r^2}\sqrt{r^2-y^2} \text{ if } |y| \leq r
+\end{align}
+\]</p>
+<p>Note that the marginal PDF \(f_Y\) is not uniform. The conditional PDF is:</p>
+<p>\[
+f_{X|Y}(x|y) = \frac{f_{X,Y}(x,y)}{f_Y(y)} = \frac{\frac{1}{\pi r^2}}{\frac{2}{\pi r^2}\sqrt{r^2-y^2}} \text{ if } x^2+y^2 \leq r^2
+\]</p>
+</details>
+</div>
+<h1 id="lecture-8"><a class="header" href="#lecture-8">Lecture 8</a></h1>
+<h1 id="lecture-9"><a class="header" href="#lecture-9">Lecture 9</a></h1>
+<h1 id="lecture-10"><a class="header" href="#lecture-10">Lecture 10</a></h1>
+<h1 id="lecture-11"><a class="header" href="#lecture-11">Lecture 11</a></h1>
+<h1 id="assignment-2-8"><a class="header" href="#assignment-2-8">Assignment 2, #8</a></h1>
+<p>Poker dice is played by simultaneously rolling 5 dice. Show each of the following.</p>
+<ol>
+<li>\(P(\text{no two alike}) = 0.0926\)
+\[
+\frac{\binom{6}{5}\cdot 5!}{6^5} = \frac{5}{54} \approx 0.0926
+\]</li>
+</ol>
+<center>
+<details>
+<summary><strong>Explanation</strong></summary>
+<p>There are \(\binom{6}{5}\) ways to choose a roll containing 5 distinct numbers and \(5!\) ways to order those rolls. This is taken out of \(6^5\) possible rolls for five dice.</p>
+</details>
+</center>
+<ol start="2">
+<li>\(P(\text{one pair}) = 0.4630\)
+\[
+\frac{\binom{6}{1}\binom{5}{2}\cdot 3!\binom{5}{3}}{6^5} = \frac{3600}{6^5} \approx 0.4360
+\]</li>
+</ol>
+<center>
+<details>
+<summary><strong>Explanation</strong></summary>
+<p>There are \(\binom{6}{1}\) choices for which number has a pairing and \(\binom{5}{2}\) ways to choose that pair from a roll of 5 dice. There are \(\binom{6-1}{3}\) ways to choose the remaining values (one value from the original 6 is off-limits) with a total of \(3!\) orderings, again taken out of \(6^5\) possible events.</p>
+</details>
+</center>
+<ol start="3">
+<li>\(P(\text{two pairs}) = 0.2315\)
+\[
+\frac{\binom{6}{2}\binom{5}{2}\binom{3}{2}\binom{4}{1}}{6^5} = \frac{1800}{6^5} \approx 0.2315
+\]</li>
+</ol>
+<center>
+<details>
+<summary><strong>Explanation</strong></summary>
+<p>There are \(\binom{6}{2}\) ways to choose the two numbers that make up each pair. From here, we have \(\binom{5}{2}\) ways to choose the first pair (choosing 2 dice from 5) and \(\binom{3}{2}\) ways to choose the second (choosing another 2 dice from remaining 3).</p>
+<p>From here our only remaining choice is the value of the final die, choosing 1 value from 4 remaining options, or \(\binom{4}{1}\).</p>
+</details>
+</center>
+<ol start="4">
+<li>\(P(\text{three alike}) = 0.1543\)
+\[
+\frac{\binom{6}{1}\binom{5}{3}\cdot 2!\binom{5}{2}}{6^5} = \frac{1200}{6^5} \approx 0.1543
+\]</li>
+</ol>
+<center>
+<details>
+<summary><strong>Explanation</strong></summary>
+<p>There are \(\binom{6}{1}\) ways to choose which number makes up our three-alike and \(\binom{5}{3}\) ways to select three dice from five. \(2!\binom{6-1}{2}\) accounts for the selection of the remaining two from five potential values with \(2!\) potential orderings.</p>
+</details>
+</center>
+<ol start="5">
+<li>\(P(\text{full house}) = 0.0386\)
+\[
+\frac{\binom{6}{1}\binom{5}{3}\binom{5}{1}}{6^5} = \frac{300}{6^5} \approx 0.0386
+\]</li>
+</ol>
+<center>
+<details>
+<summary><strong>Explanation</strong></summary>
+<p>There are \(\binom{6}{1}\) ways to select which value has a three-alike pairing and \(\binom{5}{3}\) ways to select that pairing from five dice. Since the remaining two dice must have the same value and one value from the original 6 is off-limits, we're selecting one value from the remaining five, or \(\binom{6-1}{1}\).</p>
+</details>
+</center>
+<ol start="6">
+<li>\(P(\text{four alike}) = 0.0193\)
+\[
+\frac{\binom{6}{1}\binom{5}{4}\binom{5}{1}}{6^5} = \frac{150}{6^5} \approx 0.0193
+\]</li>
+</ol>
+<center>
+<details>
+<summary><strong>Explanation</strong></summary>
+<p>There are again \(\binom{6}{1}\) ways to decide which value will make up our four-alike and \(\binom{5}{4}\) ways to select four dice from five. \(\binom{6-1}{1}\) accounts for the ways to select a value for the remaining die.</p>
+</details>
+</center>
+<ol start="7">
+<li>\(P(\text{five alike}) = 0.0008\)
+\[
+\frac{\binom{6}{1}\binom{5}{5}}{6^5} = \frac{6}{6^5} \approx 0.0008
+\]</li>
+</ol>
+<center>
+<details>
+<summary><strong>Explanation</strong></summary>
+<p>Given \(\binom{6}{1}\) ways to select which value has a five-alike pairing, there's only \(\binom{5}{5} = 1\) way to roll each value.</p>
+</details>
+</center>
 
                     </main>
 
