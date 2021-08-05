@@ -1,6 +1,8 @@
 # Overview
 These are (a majority of) my lecture notes for CS394R from Summer 2021 meant as a supplement for future students. I got into a time crunch towards the end and wasn't able to put the time into actually getting the last few lectures typed out, so if you'd be able to contribute I'm sure future students would appreciate it!
 
+[Find the book here.](https://reecemcmillin.github.io/cs394-lecture-notes/book/)
+
 # Contributing
 I used [mdBook](https://rust-lang.github.io/mdBook/) and [MathJax](https://www.mathjax.org/) for everything here. If you'd like to contribute, just branch off and throw a PR and I'll merge when I can!
 
