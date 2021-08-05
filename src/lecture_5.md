@@ -361,6 +361,3 @@ The mean and variance are
         \text{var}(X) &= E[X^2] - \left(E[X]\right)^2 = \frac{(b-a+1)^2-1}{12}
     \\end{align}
 \\]
-
-### Extra Credit: First city to reach 1,000,000 people: Rome
-

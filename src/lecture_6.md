@@ -141,7 +141,7 @@ The variance of \\(X\\) is defined by
 \\]
 We have
 \\[
-    0 \leq \text{var}(X) = E[x^2] - (E[X])^2
+    0 \leq \text{var}(X) = E[X^2] - (E[X])^2
 \\]
 If \\(Y=ax+b\\) where \\(a\\) and \\(b\\) are given scalars, then
 \\[

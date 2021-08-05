@@ -18,8 +18,6 @@
 **Big Idea**: *For problems __without permutation or replacement__, a series of decisions can be enumerated by multiplying the number of possible decisions at each stage.*
 </div>
 
-## **Extra Credit**: Favorite Sport: Football
-
 <div class="ex">
 
 <details>

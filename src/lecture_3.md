@@ -19,7 +19,6 @@ Consider an experiment whose outcome is not predictable with certainty. The set 
 Any subset \\(A\\) of the sample space is known as an event.
 
 The event \\(A \cup B\\) occurs if either \\(A\\) or \\(B\\) occurs.
-### Extra Credit: The Cake is a Lie
 
 For any two events \\(A\\) and \\(B\\), we define the event \\(AB\\) as the *intersection* of \\(A\\) and \\(B\\), or \\(A \cap B\\).
 

@@ -36,8 +36,6 @@ If the possible outcomes are finitely many and equally likely, then
 </details>
 </div>
 
-### Extra Credit: Answer to the Universe = 42
-
 ### The Law of Total Probability
 
 Let \\(A\\) and \\(B\\) be events. We may express \\(A\\) as
